@@ -42,7 +42,7 @@ def restart_container():
     ssh = paramiko.SSHClient()
     ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
     ssh.connect(hostname='139.162.130.236', username='root',
-                key_filename='/Users/nanajanashia/.ssh/id_rsa')
+                key_filename='/Users/papis84/.ssh/id_rsa')
     stdin, stdout, stderr = ssh.exec_command('docker start c3e706bc905e')
     print(stdout.readlines())
     ssh.close()
@@ -50,7 +50,7 @@ def restart_container():
 
 def monitor_application():
     try:
-        response = requests.get('http://li1388-236.members.linode.com:8080/')
+        response = requests.get('http://54.202.7.100:8080/')
         if response.status_code == 200:
             print('Application is running successfully!')
         else:
